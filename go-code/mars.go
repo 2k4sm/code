@@ -10,7 +10,4 @@ func main(){
 
   fmt.Println("Weight on mars is:",60*0.38)
   fmt.Println("My age on mars will be:",19*365/687)
-
-
-
 }
