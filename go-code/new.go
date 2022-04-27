@@ -5,6 +5,6 @@ import "math"
 
 func main(){
 
-  x="math".sqrt(25)
-  "fmt".Println(x)
+  x=math.sqrt(25)
+  fmt.Println(x)
 }
