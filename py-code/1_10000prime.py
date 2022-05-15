@@ -1,5 +1,5 @@
 count=0
-for i in range(2,100001):
+for i in range(2,1002):
     p = 2
     num2 = 0
     while p < i:

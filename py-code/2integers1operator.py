@@ -2,10 +2,10 @@
 a=int(input("Enter first number:"))
 b=int(input("Enter second number:"))
 
-print("ADD=1")
-print("SUB=2")
-print("MULTI=3")
-print("DIVI=4")
+print("ADDITION=1")
+print("SUBSTRACTION=2")
+print("MULTIPLICATION=3")
+print("DIVISION=4")
 print("choose from above according to what you want to do:")
 
 add=a+b
@@ -25,7 +25,3 @@ elif c==4:
     print("your result is",divi)
 else:
     print("operator unspecified")
-
-
-
-
