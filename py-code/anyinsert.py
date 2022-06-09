@@ -14,4 +14,3 @@ print(list)
 for j in range(loc,len(list)):
     list[j-1],list[len(list)-1] = list[len(list)-1],list[j-1]
 print(list)
-
