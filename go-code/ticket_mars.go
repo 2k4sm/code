@@ -6,17 +6,46 @@ import (
 )
 
 func main() {
+  var trip_type string
+  fmt.Printf("Enter the type of trip you are making(One-way or Round-trip):")
+  fmt.Scanf("%s",&trip_type)
 
-  fmt.Println("Spaceline            Days     Trip-Type     Price  ")
-  fmt.Println("=================================================")
-  list := []string {"SpaceX","SpaceAdventures","Virgin Galactic"}
-  fmt.Println(list)
+  fmt.Printf("%-30v %-15v %-15v  %v \n","Spaceline","Days","Trip-type","Price")
+  fmt.Println("======================================================================")
+  var list = []string {"Virgin Galactic","SpaceX","SpaceAdventures"}
+  j:=5
+  for j!=0 {
+    for _,i := range list {
+      speed := rand.Intn(15)+16 //km/s
+      dist  := 62100000 //km
+      time_d := dist/speed/3600/24 //in days
+      //var trip_type string
+      //fmt.Printf("Enter the type of trip you are making(One-way or Round-trip):")
+      //fmt.Scanf("%s",&trip_type)
+      var price int
+      switch trip_type {
+        case "One-way":
+          if time_d < 23 {
+            price = time_d*4 //million$
 
-  speed := rand.Intn(50)+1 //km/s
-  dist  := 62100000  //km
-  time_hr:= dist/speed/3600/24 //sec divided for hour then for day
-  fmt.Println(time_hr)
+          }else {
+            price = time_d*10 //million$
+          }
+        case "Round-trip":
+          if time_d < 23 {
+            price = time_d*2*4 //million$
+            time_d *=2
 
-  
+          }else {
+            price = time_d*2*10 //million$
+            time_d*=2
+
+          }
+
+      }
+      fmt.Printf("%-30v %-15v %-15v  $%v \n",i,time_d,trip_type,price)
+    }
+    j-=1  
+  }
 
 }
