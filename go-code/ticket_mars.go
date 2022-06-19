@@ -13,7 +13,7 @@ func main() {
   fmt.Printf("%-30v %-15v %-15v  %v \n","Spaceline","Days","Trip-type","Price")
   fmt.Println("======================================================================")
   var list = []string {"Virgin Galactic","SpaceX","SpaceAdventures"}
-  j:=5
+  j:=10
   for j!=0 {
     for _,i := range list {
       speed := rand.Intn(15)+16 //km/s
@@ -45,7 +45,7 @@ func main() {
       }
       fmt.Printf("%-30v %-15v %-15v  $%v \n",i,time_d,trip_type,price)
     }
-    j-=1  
+    j-=1
   }
 
 }
