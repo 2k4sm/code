@@ -70,7 +70,3 @@ func compute(str1 string) (int) {
     }
     return sum
 }
-/*
-BUG
-the compute is failing when userinputs are having repeating characters in them.
-*/
