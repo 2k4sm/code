@@ -120,14 +120,15 @@ func argc() []string {
 
 //Record preference if vote is valid.
 func vote(voter int, rank int, name string) bool {
-	for k := range candidates {
-		if name == candidates[k].name {
-			preferences[voter][rank] = k
-			//fmt.Println(preferences)
-
-			return true
-
+	for i < candidate_count {
+		if name == candidates[i].name {
+			preferences[voter][rank] = i
+			fmt.Println(preferences)
+			i++
+			continue
 		}
+		return true
+
 	}
 	return false
 }
