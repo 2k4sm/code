@@ -5,26 +5,44 @@ import (
 	conv "temptables/conv"
 )
 
+func DrawTable() {
 
-func DrawTable(Myfunc conv.Temperature) {
+	tablen1 := 140
+	tablen2 := 140
 
-	tablen := 140
-
-	for tablen > 0 {
-		if tablen == 140/2 {
+	for tablen1 > 0 {
+		if tablen1 == 140/2 {
 			fmt.Printf("|C|F|")
-		} else if tablen == 1 {
+		} else if tablen1 == 1 {
 			fmt.Printf("|")
 		} else {
 			fmt.Printf("=")
 		}
-		tablen--
+		tablen1--
 	}
 	fmt.Println()
 	x := -40
 	for x < 100 {
-		conv.K =float32(x)
-		fmt.Printf("|%d|%.4v|\n", x, conv.K)
+		v := conv.Celsius(x)
+		fmt.Printf("|%d|%.4v|\n", x, v.CelConv())
+		x++
+
+	}
+	for tablen2 > 0 {
+		if tablen2 == 140/2 {
+			fmt.Printf("|F|C|")
+		} else if tablen2 == 1 {
+			fmt.Printf("|")
+		} else {
+			fmt.Printf("=")
+		}
+		tablen2--
+	}
+	fmt.Println()
+	x = -40
+	for x < 100 {
+		v := conv.Fahrenheit(x)
+		fmt.Printf("|%d|%.4v|\n", x, v.FarhenConv())
 		x++
 
 	}
