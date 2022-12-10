@@ -5,7 +5,9 @@ import (
 	conv "temptables/conv"
 )
 
-func DrawTable() {
+
+func DrawTable(Myfunc conv.Temperature) {
+
 	tablen := 140
 
 	for tablen > 0 {
@@ -21,8 +23,8 @@ func DrawTable() {
 	fmt.Println()
 	x := -40
 	for x < 100 {
-		v := conv.CelConv(float32(x))
-		fmt.Printf("|%d|%.4v|\n", x, v)
+		conv.K =float32(x)
+		fmt.Printf("|%d|%.4v|\n", x, conv.K)
 		x++
 
 	}

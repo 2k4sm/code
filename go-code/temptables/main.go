@@ -1,10 +1,13 @@
 package main
 
 import (
+	conv "temptables/conv"
 	table "temptables/table"
 )
 
 func main() {
-	table.DrawTable()
-	table.DrawTable()
+
+	table.DrawTable(conv.CelConv())
+
+	table.DrawTable(conv.FarhenConv())
 }
