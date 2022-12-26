@@ -1,8 +1,11 @@
-class point():
-    def __init__(self, x, y):
-        self.x = x
-        self.y = y
+class Cars:
+    def __init__(self):
+        self.company = "Toyota"
+        self.name = "supra"
+        self.colour = "black"
+        self.price = 2000000
+    def buy(self):
+        return f"The {self.company} {self.name} you want to buy is {self.price} and is of {self.colour} colour."
+cars = Cars()
 
-p = point(2, 8)
-print(p.x)
-print(p.y)
+print(cars.buy())
