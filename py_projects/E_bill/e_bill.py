@@ -11,30 +11,51 @@ class Bill():
         self.watt = int(input("Watt:"))
         self.total = 0
         self.wattage = []
+        self.tax = 0
+        self.counter = 0
     
     def stripwatt(self):
         self.wattage = []
-        while self.watt != 0:
-            if self.watt >= 10:
-                for i in range(0,(self.watt//10)):
+        watt = self.watt
+        while watt != 0:
+            if watt >= 10:
+                for i in range(0,(watt//10)):
                     self.wattage.append("10kw")
-                self.watt = self.watt%10
-            elif self.watt >= 5:
-                for i in range(0,(self.watt//5)):
+                watt = watt%10
+            elif watt >= 5:
+                for i in range(0,(watt//5)):
                     self.wattage.append("5kw")
-                self.watt = self.watt%5
+                watt = watt%5
 
-            elif self.watt >= 3:
+            elif watt >= 3:
                 for i in range(0,(self.watt//3)):
                     self.wattage.append("3kw")
-                self.watt = self.watt%3
+                watt = watt%3
 
-            elif self.watt >= 1:
-                for i in range(0,(self.watt//1)):
+            elif watt >= 1:
+                for i in range(0,(watt//1)):
                     self.wattage.append("1kw")
-                self.watt = self.watt%1
+                watt = watt%1
+            self.counter +=1
+
+
         
 
-        def measure(self,gst,overdue):
+    def measure(self,gst):
+        if self.counter == 0:
+            Bill.stripwatt(self)
+            self.tax = (gst/100)*self.watt
+            for i in self.wattage:
+                self.total += Bill.price[i]
+            
+            self.total += self.tax
+
+            print(f'Tax:{self.tax}')
+            print(f'Wattage:{self.wattage}')
+            print(f'Total:{self.total}')
+        else:
+           print(f"Already measured TOTAL:{self.total}")
+
+
             
 
