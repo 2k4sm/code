@@ -1,35 +1,23 @@
-def search(list1,item):
-    low = 0
-    high = len(list1) - 1
-    
-    while low<=high:
-        mid  = (low+high)/2
-        guess = list1[mid]
+from sorting import *
+class searcher:
 
-        if guess == item:
-            return mid
-        if guess > item:
-            high = mid - 1
-        else:
-            low = mid+1
-    return None
+    def __init__(self,list1,item):
+        self.item = item
+        self.list = list1
+        self.first = 0
+        self.last = len(self.list)
+        self.mid = (self.first+self.last)//2
+    def binsrh(self):
+        for i in range(self.last):
+            if self.item < self.list[self.mid]:
+                self.last = self.mid-1
+            elif self.item > self.list[self.mid]:
+                self.first = self.mid+1
+            elif self.item == self.list[self.mid]:
+                print(f"The position of the {self.item} is {self.mid}.")
+            else:
+                print("not found")
 
 
-listlen = int(input("Enter List len:"))
-i=0
-while i < listlen:
-    list1 = []
-    while True:
-        if i == listlen:
-            break
-        else:
-            i+=1
-        input1 = int(input("List Element:"))
-        list1.append(input1)
-        
-
-item = int(input("Enter the number to search for:"))
-
-search(list1,item)
-
-        
+number1 = searcher(sorter([2,3,4,5,6,7,8,9]).selection(),5)
+number1.binsrh()
