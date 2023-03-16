@@ -1,3 +1,5 @@
+# old code...
+'''
 list=[]
 n=int(input("Enter the number of elements to add:"))
 for i in range(0,n):
@@ -16,3 +18,25 @@ for i in range(0,len(list)):
     n+=1
     #print("After procesing", n, "Step", "The list is:", list)
 print("The list after sorting:",list)
+'''
+# new code...
+
+def smallest(arr):
+    smallest = arr[0]
+    smallest_ind = 0
+
+    for i in range(1,len(arr)):
+        if arr[i]<smallest:
+            smallest = arr[i]
+            smallest_ind = i
+
+    return smallest_ind
+
+def selection_sort(arr):
+    retarr=[]
+    for i in range(len(arr)):
+        small = smallest(arr)
+        retarr.append(arr.pop(small))
+    return retarr
+
+print(selection_sort([5,3,6,2,10]))
