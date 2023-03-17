@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Survey Forum</title>
+        <link href="./styles.css" rel="stylesheet">
+    </head>
+    <body>
+        <h1 id="title">Survey</h1>
+        <p id="description">This is a survey form.</p>
+        
+        <form id="survey-form">
+            <label for="name" id="name-label">Name</label>
+            <input id="name" type="text" placeholder="Enter your Name" required>
+
+            <label for="email" id="email-label">Email</label>
+            <input id="email" type="email" placeholder="Enter your Email" pattern="[a-zA-Z1234567890@]" required>
+
+            <label for="number" id="number-label">Favourite Number</label>
+            <input id="number" type="number" min="0" max="1000000000000" placeholder="Enter Favourite Number">
+
+            <label for="dropdown">what do you prefer?</label>
+            <select id="dropdown">
+                <option value="">Select One</option>
+                <option value="outdoorgames">Outdoor Games</option>
+                <option value="indoorgames">Indoor Games</option>
+                <option value="computergames">Computer Games</option>
+                <option value="nogames">No Games</option>
+            </select>
+
+            <label>How much socialising do you prefer?</label>
+            
+            <input id="lot" type="radio" name="social">
+            <label for="lot">I am a social person</label>
+            <input id="onlymedia" type="radio" name="social">
+            <label for="onlymedia">Only in Social Media</label>
+            <input id="onlyclose" type="radio" name="social">
+            <label for="onlyclose">Only with close Friends</label>
+            <input id="notatall" type="radio" name="social">
+            <label for="notatall">Not at All</label>
+
+            <label>What are your personal development goals?</label>
+
+            <input id="career" type="checkbox" value="career">
+            <label for="career">Focusing on my career.</label>
+            <input id="family" type="checkbox" value="family">
+            <label for="family">Spending time with family.</label>
+            <input id="exercise" type="checkbox" value="exercise">
+            <label for="exercise">Getting into shape.</label>
+            <input>
+            <label></label>
+
+
+        </form>
+    </body>
+</html>
