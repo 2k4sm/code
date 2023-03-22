@@ -1,5 +1,6 @@
 #include <cs50.h>
 #include <stdio.h>
+#include <string.h>
 
 // Max number of candidates
 #define MAX 9
@@ -100,6 +101,13 @@ int main(int argc, string argv[])
 bool vote(int rank, string name, int ranks[])
 {
     // TODO
+    for (int i = 0; i<candidate_count;i++){
+        if (strcmp(name,candidates[i]) == 0){
+            ranks[rank] = i ;
+            return true;
+        };
+
+    };
     return false;
 }
 
@@ -107,6 +115,11 @@ bool vote(int rank, string name, int ranks[])
 void record_preferences(int ranks[])
 {
     // TODO
+    for (int i = 0; i<candidate_count; i++){
+        for (int j = i+1; j<candidate_count; j++){
+            preferences[ranks[i]][ranks[j]]++;
+    };
+    }
     return;
 }
 
@@ -114,20 +127,79 @@ void record_preferences(int ranks[])
 void add_pairs(void)
 {
     // TODO
+    for (int i = 0; i,candidate_count; i++){
+        for (int j = i+1; j<candidate_count; j++){
+            if (preferences[i][j] > preferences[j][i]){
+                    pairs[pair_count].winner = i;
+                    pairs[pair_count].loser = j;
+                    pair_count ++ ;
+            }else if (preferences[i][j] < preferences[j][i]){
+                pairs[pair_count].winner = j;
+                pairs[pair_count].loser = i;
+                pair_count++;
+            }
+        }
+    }
     return;
 }
+
+int comparator(const void *a, const void *b)
+{
+    pair *ab = (pair *)a;
+    pair *ba = (pair *)b;
+
+    // uses pointers to access the preferences and check how much a candidate wins over another
+    return (preferences[ba->winner][ba->loser] - preferences[ab->winner][ab->loser]);
+}
+
+
 
 // Sort pairs in decreasing order by strength of victory
 void sort_pairs(void)
 {
     // TODO
+    qsort(pairs, pair_count, sizeof(pair), comparator);
+
     return;
 }
+
+bool has_cycle(int winner, int loser)
+{
+    while (winner != -1 && winner != loser)
+    {
+        bool found = false;
+        for (int i = 0; i < candidate_count; i++)
+        {
+            if (locked[i][winner])
+            {
+                found = true;
+                winner = i;
+            }
+        }
+        if (!found)
+        {
+            winner = -1;
+        }
+    }
+    if (winner == loser)
+    {
+        return true;
+    }
+    return false;
+}
+
 
 // Lock pairs into the candidate graph in order, without creating cycles
 void lock_pairs(void)
 {
     // TODO
+    for (int i = 0; i < pair_count; i++)
+    {
+        if (!has_cycle(pairs[i].winner, pairs[i].loser))
+        {
+            locked[pairs[i].winner][pairs[i].loser] = true;
+        }
+    }
     return;
 }
 
@@ -135,5 +207,22 @@ void lock_pairs(void)
 void print_winner(void)
 {
     // TODO
+    for (int col = 0; col < MAX; col++)
+    {
+        bool found_source = true;
+        for (int row = 0; row < MAX; row++)
+        {
+            if (locked[row][col] == true)
+            {
+                found_source = false;
+                break;
+            }
+        }
+        if (found_source)
+        {
+            printf("%s\n", candidates[col]);
+            return;
+        }
+    }
     return;
 }
