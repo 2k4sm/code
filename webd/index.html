@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Survey</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <h1 id="title">Survey Form</h1>
+    <p id="description">
+      This is a short form to help us know you better.<br/>
+      Feel free to share about you.
+    </p>
+
+    <form id="survey-form">
+
+      <label for="name" id="name-label">Name</label>
+      <input id="name" type="text" placeholder="Enter Name" required >
+      <label for="email" id="email-label">Email</label>
+      <input id="email" type="email" required placeholder="Enter Email" >
+      <label for="number" id="number-label">Number</label>
+      <input id="number" type="number" min="0" max="10000" placeholder="Enter Number">
+
+      <label for="dropdown">Choose a favourite snack?</label>
+      <select id="dropdown">
+        <option value="">Select One</option>
+        <option value="samosa">Samosa</option>
+        <option value="vada">Vada</option>
+        <option value="idli">Idli</option>
+        <option value="dahibara">Dahibara</option>
+        <option value="gupchup">Gupchup</option>
+      </select>
+
+      <label>Which one is your favourite sport?</label>
+      <input id="cricket" name="fav-sport" value= "cricket" type="radio">
+      <label for="cricket" id="cricket-label">Cricket</label>
+      <input id="football" name="fav-sport" value="football" type="radio">
+      <label for="football" id="football-label">Football</label>
+      <input id="hockey" name="fav-sport" value="hockey" type="radio">
+      <label for="hockey" id="hockey-label">Hockey</label>
+      <input id="badminton" name="fav-sport" value="badminton" type="radio">
+      <label for="badminton" id="badminton-label">Badminton</label>
+
+      <label>Your Future Goals?</label>
+      <input id="family" type="checkbox" value="family">
+      <label for="family">Spend more time with family</label>
+      <input if="upskill" type="checkbox" value="upskill">
+      <label for="upskill">Learn new skills</label>
+      <input if="travel" type="checkbox" value="travel">
+      <label for="travel">Travel new places</label>
+      <input if="metime" type="checkbox" value="metime">
+      <label for="metime">Spend more me time</label>
+
+      <label>Want to tell more about yourself?</label>
+      <textarea placeholder="tell us some more about yourself."></textarea>
+
+      <input type="button" value="submit" id="submit">
+    </form>
+  </body>
+</html>
