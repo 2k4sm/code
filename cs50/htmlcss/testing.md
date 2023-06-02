@@ -1,1 +1,0 @@
-file:///media/fuse/crostini_1389877cf2c8c37a05c0ccb60f671c89988aa177_termina_penguin/git/code/cs50/htmlcss/git.html
