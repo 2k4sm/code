@@ -1,15 +1,15 @@
 package main
-import (
-   "fmt"
-)
-func main(){
-   fmt.Printf("Enter size of your array: ")
-   var size int
-   fmt.Scanln(&size)
-   var arr = make([]int, size)
-   for i:=0; i<size; i++ {
-      fmt.Printf("Enter %dth element: ", i)
-      fmt.Scanf("%d", &arr[i])
-   }
-   fmt.Println("Your array is: ", arr)
+
+import "fmt"
+
+func main() {
+	var array = []int{1, 2, 3, 4}
+	array = append(array, 5)
+	array = append(array, 6)
+
+	for _, i := range array {
+		fmt.Println("Address: ", &i)
+		fmt.Println("Value: ", i)
+	}
+	fmt.Println("Array VAL:", array)
 }
