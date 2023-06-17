@@ -8,28 +8,24 @@ type Node struct {
 }
 
 type LinkedList struct {
-	head   *Node
-	length int
+	head *Node
 }
 
 func (l *LinkedList) insertBegin(n *Node) {
 	nextval := l.head
 	l.head = n
 	l.head.next = nextval
-	l.length++
 }
 
 func (l *LinkedList) insertEnd(n *Node) {
-	if l.length == 0 {
+	ptr := l.head
+	if ptr == nil {
 		l.head = n
-		l.length++
 	} else {
-		ptr := l.head
 		for ptr.next != nil {
 			ptr = ptr.next
 		}
 		ptr.next = n
-		l.length++
 	}
 
 }
@@ -37,13 +33,12 @@ func (l *LinkedList) insertEnd(n *Node) {
 func (l *LinkedList) insertList(list []int) {
 	for _, i := range list {
 		l.insertEnd(&Node{data: i})
-		l.length++
 	}
 }
 
 func (l *LinkedList) insertAt(index int, data int) {
 	ptr := l.head
-	if index > l.length || index < 0 {
+	if index < 0 {
 		panic("Index out of range.")
 	} else {
 		for index-1 != 0 {
@@ -53,7 +48,6 @@ func (l *LinkedList) insertAt(index int, data int) {
 		changeval := ptr.next
 		ptr.next = &Node{data: data}
 		ptr.next.next = changeval
-		l.length++
 	}
 }
 
@@ -74,7 +68,6 @@ func (l *LinkedList) insertAfter(valueafter int, data int) {
 	changeval := ptr.next
 	ptr.next = &Node{data: data}
 	ptr.next.next = changeval
-	l.length++
 
 }
 
