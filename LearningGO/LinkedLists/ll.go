@@ -41,6 +41,7 @@ func (l *LinkedList) insertAt(index int, data int) {
 	if index < 0 {
 		panic("Index out of range.")
 	} else {
+		//TODO: handle index out of range for values greater than length of llist.
 		for index-1 != 0 {
 			ptr = ptr.next
 			index--
@@ -92,6 +93,10 @@ func main() {
 
 	list := []int{1, 2, 3, 4, 5, 6}
 	llist.insertList(list)
+	llist.insertAfter(4, 10)
+	llist.insertAfter(4, 10)
+	llist.insertAfter(4, 10)
+	llist.insertAfter(4, 10)
 	llist.RemoveAt(3)
 	llist.RemoveAt(2)
 	llist.printData()
