@@ -33,18 +33,11 @@ func (l *LinkedList) insertEnd(n *Node) {
 	}
 
 }
-func (l *LinkedList) printdata() {
-	toprint := l.head
-	for l.length != 0 {
-		fmt.Println(toprint.data)
-		toprint = toprint.next
-		l.length--
-	}
-}
 
 func (l *LinkedList) insertList(list []int) {
 	for _, i := range list {
 		l.insertEnd(&Node{data: i})
+		l.length++
 	}
 }
 
@@ -53,7 +46,7 @@ func (l *LinkedList) insertAt(index int, data int) {
 	if index > l.length || index < 0 {
 		panic("Index out of range.")
 	} else {
-		for index != 0 {
+		for index-1 != 0 {
 			ptr = ptr.next
 			index--
 		}
@@ -64,33 +57,50 @@ func (l *LinkedList) insertAt(index int, data int) {
 	}
 }
 
+func (l *LinkedList) printData() {
+	ptr := l.head
+	for ptr != nil {
+		fmt.Println(ptr.data)
+		ptr = ptr.next
+	}
+}
+
+func (l *LinkedList) insertAfter(valueafter int, data int) {
+	ptr := l.head
+
+	for valueafter != ptr.data {
+		ptr = ptr.next
+	}
+	changeval := ptr.next
+	ptr.next = &Node{data: data}
+	ptr.next.next = changeval
+	l.length++
+
+}
+
+func (l *LinkedList) RemoveAt(index int) {
+	currPtr := l.head
+	prevPtr := currPtr
+	nextptr := l.head.next
+
+	for index != 0 {
+		prevPtr = currPtr
+		currPtr = currPtr.next
+		nextptr = nextptr.next
+		index--
+	}
+	prevPtr.next = nextptr
+	currPtr = nil
+
+}
+
 func main() {
 	llist := LinkedList{}
-	llist2 := LinkedList{}
-	node1 := &Node{data: 48}
-	node2 := &Node{data: 50}
-	node3 := &Node{data: 31}
-	node4 := &Node{data: 26}
-	node5 := &Node{data: 27}
-	node6 := &Node{data: 33}
-	llist.insertEnd(node1)
-	llist.insertEnd(node2)
-	llist.insertEnd(node3)
-	llist.insertEnd(node4)
-	llist.insertEnd(node5)
-	llist.insertEnd(node6)
-	llist.printdata()
-	list := []int{1, 2, 3, 4, 5, 6}
-	llist2.insertList(list)
-	llist2.insertAt(3, 9)
-	llist2.insertAt(4, 10)
-	llist2.insertAt(5, 12)
-	llist2.insertAt(6, 12)
-	llist2.insertAt(3, 9)
-	llist2.insertAt(3, 9)
-	llist2.insertAt(3, 9)
-	llist2.insertAt(10, 15)
 
-	llist2.printdata()
+	list := []int{1, 2, 3, 4, 5, 6}
+	llist.insertList(list)
+	llist.RemoveAt(3)
+	llist.RemoveAt(2)
+	llist.printData()
 
 }
