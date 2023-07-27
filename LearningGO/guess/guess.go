@@ -9,10 +9,10 @@ func main() {
 	var tguess int64
 	fmt.Printf("Enter the secret number!!!(keep it btwn 1-100):")
 	fmt.Scanf("%d", &tguess)
-	
+
 	var guess int64
 	var count int = 0
-	
+
 	for {
 		count += 1
 		guess = rand.Int63n(101)
@@ -30,6 +30,7 @@ func main() {
 			fmt.Printf("you guessed it in %d tries..", count)
 			fmt.Printf("You guessed correct that is %d \n", guess)
 			break
+			//This is a change in the file.
 		}
 
 	}
