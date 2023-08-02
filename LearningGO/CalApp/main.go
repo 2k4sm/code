@@ -1,11 +1,12 @@
 package main
 
-import(
-	"basicfunc"
-	"advancefunc"
-
+import (
+	aM "CalApp/advancefunc"
+	bM "CalApp/basicfunc"
+	"fmt"
 )
-func main() {
 
+func main() {
+	
 
 }
