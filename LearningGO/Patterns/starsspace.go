@@ -1,10 +1,14 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"os"
+	"strconv"
+)
 
 func main() {
 
-	plength := 10
+	plength, _ := strconv.Atoi(os.Args[1])
 	stars := 1
 	for plength != 0 {
 		for i := 0; i < stars; i++ {
