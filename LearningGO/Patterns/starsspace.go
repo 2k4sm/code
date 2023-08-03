@@ -7,16 +7,12 @@ func main() {
 	plength := 10
 	stars := 1
 	for plength != 0 {
-		spaces := plength - stars
-		for i := 1; i <= spaces; i++ {
-			fmt.Print(" ")
-		}
-		for k := 1; k <= stars; k++ {
+		for i := 0; i < stars; i++ {
 			fmt.Print("*")
 		}
+		stars++
 		fmt.Println()
 		plength--
-		stars++
 	}
 
 }
