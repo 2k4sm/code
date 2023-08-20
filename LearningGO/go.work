@@ -4,6 +4,7 @@ use (
 	./CalApp
 	./goserv
 	./hextodec
+	./nSimNum
 	./reverseString
 	./router
 
