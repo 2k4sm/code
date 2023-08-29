@@ -1,10 +1,84 @@
-package ImageEditor;
+package imageditor;
 import java.awt.Color;
 import java.awt.image.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
 
-public class ImageEditor{
+
+import javax.imageio.ImageIO;
+
+public class imageEditor{
     public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        if (args.length != 3){
+            System.out.println("Usage: imageEditor.java <command> [argument] [argument]");
+            System.exit(1);
+        }
+
+        String[] commands = {"mirrorImage","rotateImage","convertToGrayScale","brightnessControl","monochromeImage"};
+        String command = "";
+        int commandExist = 0;
+        for(int i = 0; i<commands.length;i++){
+            if (commands[i].equals(args[0])){
+                commandExist = 1;
+                command = commands[i];
+                break;
+            }
+        }
+        if(commandExist == 0){
+            System.out.println("<command> does not exists");
+            System.out.println("Possible commands: mirrorImage,rotateImage,convertToGrayScale,brightnessControl,monochromeImage");
+            System.exit(1);
+        }
+
+        if(! args[1].contains(".jpg")){
+            System.out.println("[argements]: only .jpg files supported.");
+            System.exit(1);
+
+        }
+
+
         
+
+
+        File outputFile = new File(args[2]+".jpg");
+
+        
+        try{
+            File fileinput = new File(args[1]);
+
+            BufferedImage inputImage = ImageIO.read(fileinput);
+
+            switch(command){
+                case "mirrorImage":
+                    ImageIO.write(mirrorImage(inputImage),"jpg", outputFile);
+                    break;
+                case "rotateImage":
+                    ImageIO.write(rotateImage(inputImage),"jpg", outputFile);
+                    break;
+                case "convertToGrayScale":
+                    ImageIO.write(convertToGrayScale(inputImage),"jpg", outputFile);                    
+                    break;
+                case "brightnessControl":
+                    System.out.print("Enter brightness increase percent: ");
+                    int brightPercent = scan.nextInt();
+                    ImageIO.write(brightnessControl(inputImage, brightPercent),"jpg", outputFile);
+                    break;
+                case "monochromeImage":
+                    ImageIO.write(monochromeImage(inputImage),"jpg", outputFile);
+                    break;
+                default:
+                    System.out.println("Some Error Occured");
+            }
+            System.out.printf("New Processed Image file: %s Created.\n",outputFile);
+
+        }catch(IOException e){
+            System.out.println(e+": File not Found");
+
+        }
+        scan.close();
+        System.exit(0);
     }
 
     
@@ -116,15 +190,5 @@ public class ImageEditor{
     }
 
     //Write a function to create a blurred image of the given picture.
-    public static BufferedImage blurredImage(BufferedImage image, int blurintensity){
-        int height = image.getHeight();
-        int width = image.getWidth();
-        BufferedImage outputImage = new BufferedImage(width, height,BufferedImage.TYPE_3BYTE_BGR);
 
-        for(int i = 0;i<height;i++){
-            for(int j = 0; j<width;j++){
-                
-            }
-        }
-    }
 }
