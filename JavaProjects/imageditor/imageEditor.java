@@ -12,7 +12,7 @@ public class imageEditor{
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         if (args.length != 3){
-            System.out.println("Usage: imageEditor.java <command> [argument] [argument]");
+            System.out.printf("Usage: imageEditor.java <command> [inputimage] [outputImageName]\n--Possible commands: mirrorImage,rotateImage,convertToGrayScale,brightnessControl,monochromeImage\n");
             System.exit(1);
         }
 
@@ -27,13 +27,17 @@ public class imageEditor{
             }
         }
         if(commandExist == 0){
+            System.out.println("Usage: imageEditor.java <command> [inputimage] [outputImageName]");
             System.out.println("<command> does not exists");
-            System.out.println("Possible commands: mirrorImage,rotateImage,convertToGrayScale,brightnessControl,monochromeImage");
+            System.out.println("--Possible commands: mirrorImage,rotateImage,convertToGrayScale,brightnessControl,monochromeImage");
             System.exit(1);
         }
 
         if(! args[1].contains(".jpg")){
-            System.out.println("[argements]: only .jpg files supported.");
+            System.out.println("Usage: imageEditor.java <command> [inputimage] [outputImageName]");
+            System.out.println("<command> does not exists");
+            System.out.println("--Possible commands: mirrorImage,rotateImage,convertToGrayScale,brightnessControl,monochromeImage");
+            System.out.println("[inputimage]: only .jpg files supported.");
             System.exit(1);
 
         }
