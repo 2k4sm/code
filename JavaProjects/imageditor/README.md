@@ -1,5 +1,5 @@
-# imageEditor 
-> [imageEditor](https://github.com/2k4sm/code/tree/main/JavaProjects/imageditor) Command line tool written in java to do simple image edits from the comfort of your terminal.
+# `imageEditor` 
+> [`imageEditor`](https://github.com/2k4sm/code/tree/main/JavaProjects/imageditor) Command line tool written in java to do simple image edits from the comfort of your terminal.
 # Usage
 > Usage: imageEditor.java \<command> [inputimage] [outputImageName]\
 >--Possible commands: mirrorImage,rotateImage,convertToGrayScale,brightnessControl,monochromeImage 
@@ -16,27 +16,27 @@
 
 # Functions
 
-- *__Original Image__*
+- *__`Original Image`__*
 
 ![originalImage.jpg](./sunflower.jpg)
 
-1. *__mirrorImage__*
+1. *__`mirrorImage`__*
     - This swaps the position of the opposite pixels from the  inputImage BufferedImage and puts it in the outputImage BufferedImage.
     - Then it returns the created BufferedImage.
 
     ![mirrorImage.jpg](./mirroredsunflower.jpg)
-2. *__rotateImage__*
+2. *__`rotateImage`__*
     - This function first transposes the original image and creates a transposed output image by swapping the column with the row.
     - Then the transposed image is mirrored with the created mirrorImage function.
     - Then it returns created BufferedImage. 
 
     ![rotateImage](./rotatedsunflower.jpg)
-3. *__convertToGrayScale__*
+3. *__`convertToGrayScale`__*
     - This function takes the value of each pixel from the inputImage BufferedImage and then Puts it in a OutputImage BufferedImage which has the recieve type for only gray. So it only accepts the gray values into it and discards the remaining values.
     - Then it returns the created BufferedImage.
 
     ![convetToGrayScale](./grayScaleSunflower.jpg)
-4. *__brightnessControl__*
+4. *__`brightnessControl`__*
     - This takes an userInput(can be positive/can be negative) which is the brightness percentage.
     - This first gets the color information of each pixel and stores in a color Object.
     - Then each of the color is individually increased/decreased by the brightness percentage till the color value is not beyond 255.
@@ -46,7 +46,7 @@
     - Then the created BufferedImage is returned.
 
     ![brightnessControl](./brightnessSunflower.jpg)
-5. *__monochromeImage__*
+5. *__`monochromeImage`__*
     - This Takes each input pixel then creates a color object to get its color information and then creates a new color object with each red,green,blue(rgb) assigned to the avarage of the three.
     - Then it returns the outputImage BufferImage.
 
@@ -54,7 +54,7 @@
 
 ## These are all the Functions that have been implemented to make this command line tool.
 
-# By : Shrinibas Mahanta.
+# `By : Shrinibas Mahanta.`
 
 
 
