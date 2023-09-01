@@ -16,7 +16,7 @@
 
 # Functions
 
-- Original Image
+- *__Original Image__*
 
 ![originalImage.jpg](./sunflower.jpg)
 
