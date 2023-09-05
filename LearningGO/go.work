@@ -5,6 +5,7 @@ use (
 	./goserv
 	./hextodec
 	./nSimNum
+	./restfulAPI
 	./reverseString
 	./router
 
