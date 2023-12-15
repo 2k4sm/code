@@ -16,6 +16,7 @@ type Article struct {
 type Articles []Article
 
 func articlesReturn(w http.ResponseWriter, r *http.Request) {
+	w.Header().Set("content-type", "application/json")
 	articles := Articles{
 		Article{Title: "Movie 1", Desc: "This movie is not a movie", Content: "This movie has no content in it"},
 		Article{"Movie 2", "Movie 2 desc", "Movie 2 content"},

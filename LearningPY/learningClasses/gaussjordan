@@ -1,0 +1,21 @@
+def gauss_jordan(matrix):
+    mat_len = len(matrix)
+
+    for i in range(mat_len):
+        
+        pivot = matrix[i][i]
+        for j in range(mat_len+1):
+            matrix[i][j] /= pivot
+            
+        for k in range(mat_len):
+            
+          if k != i:
+            factor = matrix[k][i]
+            
+            for j in range(mat_len+1):
+              matrix[k][j] -= factor * matrix[i][j]
+
+    solution = [row[mat_len] for row in matrix]
+    return solution
+
+print(gauss_jordan([[2,0,0,1],[0,2,0,3],[0,0,2,5]]))

@@ -1,0 +1,145 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav{
+    width: 100vw;
+    background-color: black;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+}
+
+.tag-holder{
+    height: 4rem;
+    width: 18rem;
+    background-color: azure;
+    margin-left: 5rem;
+    margin-right: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.actions-holder{
+    height: 4rem;
+    width: 12rem;
+    background-color: whitesmoke;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.tag{
+    height: 2rem;
+    width: 3rem;
+}
+.red{
+    background-color: red;
+}
+
+.gray{
+    background-color: gray;
+}
+
+.green{
+    background-color: green;
+}
+
+.purple{
+    background-color: purple;
+}
+
+/* .enter-task{
+    justify-content: center;
+    align-items: center;
+    display: flex;
+} */
+
+.modal-container{
+    height: 50vh;
+    width: 50vw;
+    background-color: azure;
+    display: flex;
+    position: fixed;
+    left: 25vw;
+    top: 25vh;
+    border: 1px solid rgba(41, 40, 40, 0.288);
+    border-radius: 1rem;
+    box-shadow: 0rem 0rem 3rem rgba(46, 45, 45, 0.397);
+    display: none;
+
+}
+.textarea-cont{
+    height: 100%;
+    width: 75%;
+    resize: none;
+    padding: 2rem;
+    font-size: xxx-large;
+    border-style: none;
+    border-right: 2px solid black;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+
+}
+
+.add:hover{
+    cursor: pointer;
+}
+
+.delete:hover{
+    cursor: pointer;
+}
+
+.textarea-cont::placeholder{
+    pointer-events: none;
+}
+.priority-tag{
+    width: 25%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.ptag{
+    width: 60%;
+    height: 15%;
+}
+
+
+.main-container{
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.ticket-cont{
+    background-color: cornsilk;
+    width: 15rem;
+    height: 10rem;
+
+}
+
+.ticket-color{
+    height: 1rem;
+    width: 100%;
+    background-color: greenyellow;
+}
+
+.ticket-id{
+    height: 1.5rem;
+    font-weight: bold;
+    background-color: gray;
+}
+
+.ticket-area{
+    height: calc(10rem-1.5rem-1rem);
+}
+
