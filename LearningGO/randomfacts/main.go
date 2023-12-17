@@ -11,14 +11,6 @@ import (
 func main() {
 	app := fiber.New()
 
-	app.Get("/", func(c *fiber.Ctx) error {
-		return c.JSON(
-			fiber.Map{
-				"Congrats!": "Yay!...You've Created a JSON API using Fiber...",
-			},
-		)
-	})
-
 	app.Get("/randomfacts", randomfacts)
 
 	log.Fatal(app.Listen(":8080"))
