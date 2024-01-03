@@ -1,75 +1,75 @@
 public class javatest{
-	public static void main(String[] Args){
-		Node n1 = new Node(5);
-		insertAtEnd(n1,7);
-		insertAtEnd(n1, 10);
-		System.out.println(n1.val);
-		System.out.println(n1.next.val);	
-		System.out.println(n1.next.next.val);
-		Node n2 = insertAtKthPos(n1, 12, 2);
-		System.out.println(n2.val);	
-		System.out.println(n2.next.val);	
-		System.out.println(n2.next.next.val);
-	}
-	public static Node insertAtStart(Node head,int val){
-		Node newHead = new Node(val);
+	public static void main(String[] args) {
+		Stack newstack = new Stack(7);
 
-		newHead.next = head;
-		head = newHead;
-		return head;
-	}
-	public static Node insertAtEnd(Node head,int val){
-		
-		Node newNode = new Node(val);
-		while(head.next != null){
-			head = head.next;
-			
-		}
-
-		head.next = newNode;
+		newstack.push(10);
+		newstack.push(12);
+		newstack.push(13);
+		newstack.push(14);
+		newstack.push(15);
+		newstack.push(16);
+		newstack.push(17);
+		newstack.pop();
+		//newstack.push(1);
+		System.out.println(newstack.isFull());
 
 
-		return head;
 	}
 
+}
 
-	public static Node insertAtKthPos(Node head, int val,int pos){
 
 
-		Node newNode = new Node(val);
-		
-		if (pos == 0){
-			head = insertAtStart(head, val);
-			return head;
+
+class Stack{
+	int[] arr;
+	int capacity;
+	int size;
+
+	public Stack(int capacity){
+		this.capacity = capacity;
+		this.arr = new int[capacity];
+		this.size = 0;
+	}
+
+
+	public void push(int val){
+
+		if (this.size < this.capacity){
+			this.arr[size] = val;
+			size++;
+		}else{
+			System.out.println("No capacity left to push");
 		}
-		int i = 0;
-		while (i != pos-1){
-			if (head.next  != null){
-				head = head.next;
-				i++;
-			}else{
-				break;
-			}
+	}
 
+	public int pop(){
+		if (this.size > 0){
+			capacity--;
+		}else{
+			return -1;
 		}
+		return this.arr[capacity - 1];
+	}
 
-		Node temp = head.next;
-		head.next = newNode;
-		head.next.next = temp;
-		
-		return head;
-		
+	public int size(){
+		return this.size;
+	}
 
+	public boolean isFull(){
+		if (this.size == this.capacity){
+			return true;
+		}
+		return false;
 	}
 }
 
 class Node{
-	int val;
 	Node next;
-
-	public Node(int v){
-		this.val = v;
-		this.next = null;
-	}
+	Node prev;
+	int val;
 }
 
+class linkedStack{
+
+}
