@@ -10,6 +10,7 @@ public class queuearr {
         System.out.println("The first element to be deleted " + q.pop());
         System.out.println("The peek of the queue after deleting an element " + q.top());
         System.out.println("The size of the queue after deleting an element " + q.size());
+        System.out.println();
     }
 }
 
