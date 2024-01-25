@@ -12,9 +12,31 @@ public class bst {
     insert(node, 1);
     insert(node, 3);
 
-    preOrder(node);
-    System.out.println(isBst(node).isBst);
+    // preOrder(node);
+    
+    inot(node);
+    
+    // System.out.println(isBst(node).isBst);
   }
+
+    public static void inot(TreeNode A){
+        if (A == null){
+            return;
+        }
+        inot(A.left);
+        // al.add(A.val);
+        System.out.println(A.val);
+        inot(A.right);
+
+    }
+
+    // public static ArrayList<Integer> inorderTraversal(TreeNode A) {
+    //   ArrayList<Integer> al = new ArrayList<>();
+
+    //   inot(al,A);
+
+    //   return al;
+    // }
 
   public static void preOrder(TreeNode root) {
     if (root == null) {
