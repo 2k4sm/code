@@ -20,4 +20,5 @@ fn far_to_cel(farhan: &f32) {
         *farhan,
         (*farhan - 32.0) / 1.8
     );
+    println("this is printing stuff");
 }
