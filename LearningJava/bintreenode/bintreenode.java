@@ -2,8 +2,8 @@ import java.util.HashMap;
 
 public class bintreenode {
   public static void main(String[] args) {
-    int[] preorder = { 1, 2, 3 };
-    int[] inorder = { 2, 1, 3 };
+    int[] preorder = {1, 2, 3};
+    int[] inorder = {2, 1, 3};
     TreeNode newTree = constructTree(preorder, inorder);
     preOrder(newTree);
     postOrder(newTree);
@@ -41,8 +41,8 @@ public class bintreenode {
   }
 
   public static TreeNode build(int[] preorder, int preOrderIndex,
-      int inorderLow, int inorderHigh,
-      HashMap<Integer, Integer> inorderMap) {
+                               int inorderLow, int inorderHigh,
+                               HashMap<Integer, Integer> inorderMap) {
     if (preOrderIndex > preorder.length || inorderLow > inorderHigh) {
       return null;
     }
@@ -51,11 +51,24 @@ public class bintreenode {
     TreeNode newTree = new TreeNode(currval);
     int mid = inorderMap.get(currval);
 
-    newTree.left = build(preorder, preOrderIndex + 1, inorderLow, mid - 1, inorderMap);
+    newTree.left =
+        build(preorder, preOrderIndex + 1, inorderLow, mid - 1, inorderMap);
     newTree.right = build(preorder, preOrderIndex + (mid - inorderLow) + 1,
-        mid + 1, inorderHigh, inorderMap);
+                          mid + 1, inorderHigh, inorderMap);
 
     return newTree;
+  }
+
+  public static boolean search(TreeNode root, int k) {
+    if (root == null) {
+      return false;
+    }
+
+    if (root.val == k) {
+      return true;
+    }
+
+    return search(root.left, k) || search(root.right, k);
   }
 }
 
