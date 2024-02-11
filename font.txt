@@ -1,0 +1,15 @@
+"Roboto Mono Nerd", "Roboto Mono", "monospace"
+
+
+@font-face {  
+  font-family: "Roboto Mono Nerd";  
+    src: url("https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/RobotoMono/Regular/RobotoMonoNerdFont-Regular.ttf");  
+  font-weight: normal;  
+  font-style: normal;  
+}
+
+* {  
+  -webkit-font-feature-settings: "liga" on, "calt" on;  
+  -webkit-font-smoothing: antialiased;  
+  text-rendering: optimizeLegibility; 
+}
