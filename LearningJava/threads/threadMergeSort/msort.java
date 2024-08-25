@@ -23,10 +23,8 @@ public class msort {
 
 		Future<ArrayList<Integer>> sortedListFuture = es.submit(sorter);
 
-		// mergeSort(unsortedList, 0, unsortedList.size() - 1);
 		System.out.println("\nSorted array:");
 		printArray(sortedListFuture.get());
-		// printArray(unsortedList);
 		es.shutdown();
 	}
 
@@ -146,7 +144,6 @@ class Sorter implements Callable<ArrayList<Integer>> {
 		int i = 0;
 		int j = 0;
 
-		// Merge elements from both lists until one list is exhausted
 		while (i < firstSize && j < secondSize) {
 			if (firstList.get(i) <= secondList.get(j)) {
 				mergedList.add(firstList.get(i));
@@ -157,13 +154,11 @@ class Sorter implements Callable<ArrayList<Integer>> {
 			}
 		}
 
-		// Add remaining elements from firstList (if any)
 		while (i < firstSize) {
 			mergedList.add(firstList.get(i));
 			i++;
 		}
 
-		// Add remaining elements from secondList (if any)
 		while (j < secondSize) {
 			mergedList.add(secondList.get(j));
 			j++;
